@@ -52,7 +52,7 @@ Note that 'A' and 'a' are treated as two different characters.
 
 #### Solution
 ##### c++1：
-```
+```c++
 class Solution {
 public:
     string frequencySort(string s) {
@@ -76,7 +76,7 @@ public:
 };
 ```
 ##### c++2：使用匿名函数实现sort函数的比较方法。
-```
+```c++
 class Solution {
 public:
 	string frequencySort(string s) {
@@ -105,7 +105,7 @@ class Solution:
         return res
 ```
 ##### python2:
-```
+```python
 class Solution:
     def frequencySort(self, s):
         """
