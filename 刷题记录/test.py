@@ -1,15 +1,17 @@
 # -*- coding:utf-8 -*-
 class Solution:
-    def reOrderArray(self, array):
+    def FirstNotRepeatingChar(self, s):
         # write code here
-        odd =[]
-        even = []
-        for i in array:
-            if i%2 != 0:
-                odd.append(i)
+        a = {}
+        for c in s:
+            if a.__contains__(c):
+                a[c] += 1
             else:
-                even.append(i)
-        return odd + even
+                a[c] = 1
+        for i in range(0,len(s)):
+            if a[s[i]] == 1:
+                return i
+        return -1
 x = Solution()
-array = list(range(1,8))
-print(x.reOrderArray(array))
+s = "google"
+print(x.FirstNotRepeatingChar(s))
