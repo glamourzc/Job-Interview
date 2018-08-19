@@ -1,17 +1,8 @@
 # -*- coding:utf-8 -*-
 class Solution:
-    def FirstNotRepeatingChar(self, s):
+    def maxInWindows(self, num, size):
         # write code here
-        a = {}
-        for c in s:
-            if a.__contains__(c):
-                a[c] += 1
-            else:
-                a[c] = 1
-        for i in range(0,len(s)):
-            if a[s[i]] == 1:
-                return i
-        return -1
+        return size and [max(num[i:i+size]) for i in range(len(num)-size+1)] or []
 x = Solution()
-s = "google"
-print(x.FirstNotRepeatingChar(s))
+num = [2,3,4,2,6,2,5,1]
+print(x.maxInWindows(num,0))
