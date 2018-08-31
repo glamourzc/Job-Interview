@@ -69,14 +69,14 @@ bool Socket::Connect(const std::string& host,const int port){
 }
 
 //Data Transmission
-bool Socket::Send(Socket& socket,const std::string& message) const{
+bool Socket::Send(Socket& socket,const std::string& message){
     int result =::send(socket.m_sockfd,message.c_str(),message.size(),MSG_NOSIGNAL);
     if(result == -1)
         return false;
     return true;
 }
 
-int Socket::Recieve(Socket& socket,std::string& message) const{
+int Socket::Recieve(Socket& socket,std::string& message){
     char buffer[MAXRECEIVE+1];
     message.clear();
     memset(buffer,0,MAXRECEIVE+1);
@@ -99,4 +99,12 @@ void Socket::SetNonBlocking(const bool flags){
 
 bool Socket::IsValid() const{
     return m_sockfd != 1;
+}
+
+std::string Socket::GetAddress(){
+    return std::to_string(m_address.sin_addr.s_addr);
+}
+
+int Socket::GetPort(){
+    return ntohl(m_address.sin_port);
 }

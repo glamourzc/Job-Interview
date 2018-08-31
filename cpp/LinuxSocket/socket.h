@@ -26,11 +26,14 @@ class Socket
         bool Connect(const std::string& host,const int port);
         
         //Data Transsmission
-        bool Send(Socket& socket,const std::string& message) const;
-        int Recieve(Socket& socket,std::string& message) const;
+        static bool Send(Socket& socket,const std::string& message);
+        static int Recieve(Socket& socket,std::string& message);
 
         void SetNonBlocking(const bool flag);//???
         bool IsValid() const;
+        
+        std::string GetAddress();
+        int GetPort();
 
     private:
         int m_sockfd;
