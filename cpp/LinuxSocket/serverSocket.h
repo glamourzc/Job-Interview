@@ -5,7 +5,6 @@
 #include <list>
 #include <mutex>
 #include <thread>
-#include <iostream>
 
 class ServerSocket:public Socket{
     public:
